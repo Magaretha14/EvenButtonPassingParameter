@@ -2,6 +2,7 @@ package com.example.sampleconstraintlayoutevenbutton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -36,32 +37,50 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                validasi();
+                //menyimpan input user di edittext email kedalam variabel nama
+                nama = edemail.getText().toString();
+
+                //menyimpan input user di edittext password kedalam variabel password
+                password = edpassword.getText().toString();
+
+                //membuat variabel toast dan membuat toast dengan menambahkan variabel nama dan password
+                if (nama.equals("admin@mail.com") && password.equals("123")){
+                    Toast.makeText(MainActivity.this, "Login Sukses", Toast.LENGTH_LONG).show();
+
+                    //Membuat objek bundle
+                    Bundle b = new Bundle();
+
+                    //memasukkan value dari variabel nama dengan kunci "a"
+                    // dan dimasukkan ke dalam bundle
+                    b.putString("a", nama.trim());
+
+                    //memasukkan value dari variabel password dengan kunci "b"
+                    // dan dimasukkan ke dalam bundle
+                    b.putString("b", password.trim());
+
+                    //membuat objek intent berpindah activity dari mainactivity ke ActivityKedua
+                    Intent i = new Intent(getApplicationContext(), ActivityKedua.class);
+
+                    i.putExtras(b);
+
+                    startActivity(i);
+                }
+                else if(nama.equals("admin@mail.com") && password.equals(password)){
+                    Toast.makeText(MainActivity.this, "Password Salah", Toast.LENGTH_LONG).show();
+                }
+                else if(nama.equals(nama) && password.equals("123")){
+                    Toast.makeText(MainActivity.this, "Email Salah", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Email dan Password Salah", Toast.LENGTH_LONG).show();
+                }
+
 
             }
 
         });
     }
     public void validasi(){
-        //menyimpan input user di edittext email kedalam variabel nama
-        nama = edemail.getText().toString();
-
-        //menyimpan input user di edittext password kedalam variabel password
-        password = edpassword.getText().toString();
-
-        //membuat variabel toast dan membuat toast dengan menambahkan variabel nama dan password
-        if (nama.equals("admin@mail.com") && password.equals("123")){
-            Toast.makeText(MainActivity.this, "Login Sukses", Toast.LENGTH_LONG).show();
-        }
-        else if(nama.equals("admin@mail.com") && password.equals("1234")){
-            Toast.makeText(MainActivity.this, "Password Salah", Toast.LENGTH_LONG).show();
-        }
-        else if(nama.equals("admin1@mail.com") && password.equals("123")){
-            Toast.makeText(MainActivity.this, "Email Salah", Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(MainActivity.this,"Email dan Password Salah", Toast.LENGTH_LONG).show();
-        }
 
     }
 

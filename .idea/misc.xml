@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Kuliah/Semester 4/SampleConstraintLayoutEvenButton/app/src/main/res/layout/activity_main.xml" value="0.10975609756097561" />
+        <entry key="..\:/Kuliah/Semester 4/PAM/SampleConstraintLayoutEvenButton/app/src/main/res/layout/activity_kedua.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 4/PAM/SampleConstraintLayoutEvenButton/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Kuliah/Semester 4/SampleConstraintLayoutEvenButton/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>
